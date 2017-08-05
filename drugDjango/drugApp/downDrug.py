@@ -1,10 +1,11 @@
 
 # -*- coding: utf-8 -*-
  
+
 from django.http import HttpResponse
  
 from drugApp.models import drug
- 
+from django.shortcuts import render
 # 数据库操作
 def  down(request):
 	request.encoding='utf-8'

@@ -21,7 +21,7 @@ def search_drug(request):
 def search(request):  
 	request.encoding='utf-8'
 	#url="http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ"
-	
+
 	url=request.GET['url']
 	
 	# dictionlist=[ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
@@ -72,13 +72,7 @@ def search(request):
 	
 
 	return  render(request, 'searchedDrug.html', {'drugList': drugList})
-	#return HttpResponse(message)
-
-	# if 'q' in request.GET:
-	# 	message = 'you seartch: ' + request.GET['q']
-	# else:
- #       		 message = '你提交了空表单'
-    
+	
 
 
 

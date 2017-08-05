@@ -21,7 +21,7 @@ from drugApp import getDrugData,tumorDrug
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello$', views.hello),
+    
     url(r'^down$', downDrug.down),
     url(r'^getdrug$',getDrugData.getDrug),
     url(r'^search-drug$', tumorDrug.search_drug),
