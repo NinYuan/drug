@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+  <form action="/search" method="get">
+
+  	<table border="1">
+  	<tr>
+	<td>drugClass</td>
+	<td>drugName</td>
+	<td>drugByName</td>
+	</tr>
+  	{% for eachElem in drugList %}
+	<tr>
+	<td>eachElem.drugClass</td>
+	<td>eachElem.drugname</td>
+	<td>eachElem.drugByname</td>
+	</tr>
+	
+	{% endfor %}
+	<tr>
+	<td><input type="submit" value="getDrug"></td>
+	
+	</tr>
+	</table>
+  	
+  </form>
+{% endblock %}

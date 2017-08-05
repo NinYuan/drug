@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+  <form action="/search" method="get">
+  	<ul>
+	{% for eachElem in elemList %}
+	
+	    <li>
+	    <strong>{{ eachElem.elemLable }}</strong>
+	           {{ eachElem.examp }}
+	    </li>
+	    
+	    <li> <input type="text" name={{ eachElem.elemLable }}></li>
+	    <br>
+	{% endfor %}
+	    <li> <input type="submit" value="getDrug"></li>
+	</ul>
+
+  </form>
+{% endblock %}
