@@ -8,6 +8,7 @@ from drugApp.ProcData.extractData import *
 from drugApp.drugClass.formDrugs import *
 from drugApp.drugClass.formElem import *
 from drugApp.getData.getDrugsInt import *
+from drugApp.Tools.dealData import *
 
 def search_drug(request):
 	
@@ -20,25 +21,55 @@ def search_drug(request):
 def search(request):  
 	request.encoding='utf-8'
 	#url="http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ"
+	
 	url=request.GET['url']
-	sp=spider(url)
-	html=sp.getData()
+	
 	# dictionlist=[ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
 	getdictionlist=request.GET['dictionlist']
-	dictionlist=
+	#print getdictionlist
+	dictionlist=proDL(getdictionlist)
+	#print dictionlist
 	#removeDict=[ '0','1', '2', '3', '4', '5', '6', '7', '8', '9',"、"]
-	removeDict=request.GET['removeDict']
+	getremoveDict=request.GET['removeDict']
+	removeDict=proRMBreak(getremoveDict)
+	#print removeDict
+
 	#tag=""
 	tag=request.GET['tag']
+	#print tag
 	#drugInterLabel=", "
 	drugInterLabel=request.GET['drugInterLabel']
-	#drugByNameLabelList=["（"," (",")","("]
-	drugByNameLabelList=request.GET['drugByNameLabelList']
+	#print  drugInterLabel
 
+	#drugByNameLabelList=["（"," (",")","("]
+	getdrugByNameLabelList=request.GET['drugByNameLabelList']
+	drugByNameLabelList=proRMBreak(getdrugByNameLabelList)
+
+	#print drugByNameLabelList
+
+	# message=url+"*".join(dictionlist)+"*".join(removeDict)+tag+drugInterLabel+drugInterLabel+"*".join(drugByNameLabelList)
+	# return HttpResponse(message)
+
+	sp=spider(url)
+	html=sp.getData()
+
+	message=""
 	exdata=extractDrugs(html, tag, dictionlist)
 	drugDict=exdata.getDrug()
+
+	# for edrug in drugDict.keys():
+	# 	message+=edrug+drugDict[edrug]
+	# 	#print edrug
+	# return HttpResponse(message)
+
+
 	drugFm=drugFormer(drugDict, drugInterLabel, drugByNameLabelList,removeDict)
 	drugList=drugFm.formDrug()
+
+	message=""
+	for each in drugList:
+		message+=each.drugname+"		"+each.drugByname+"		"+each.drugClass+"\n"
+	
 
 	return  render(request, 'searchedDrug.html', {'drugList': drugList})
 	#return HttpResponse(message)

@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-data="d f"
-da=data.split(" ")
-da=data.split(" ")
-print da
+for i in range(5):
+	try:
+		if  i==2:
+			print "yes"
+			continue
+	
+	except Exception as e:
+		pass
+	print "okS"

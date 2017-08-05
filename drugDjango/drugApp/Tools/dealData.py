@@ -1,8 +1,9 @@
 def  proDL(data):
 	datalist=data.split("-")
+	
 	dictionlist=[]
 	for i in range(int(datalist[1])+1):
-		if  i< datalist[0]:
+		if  i<  int(datalist[0]):
 			continue
 		dictionlist.append(str(i))
 		
@@ -13,8 +14,9 @@ def  proRMBreak(data):
 	datalist=data.split(" ")
 	return datalist
 	
-
-
+# data="1-27"
+# datalist=proDL(data)
+# print datalist
 # def  proTG(data):
 # 	pass
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
  
 {% block mainbody %}
-  <form action="/search" method="get">
+  <form action="/down" method="get">
 
   	<table border="1">
   	<tr>
@@ -11,9 +11,9 @@
 	</tr>
   	{% for eachElem in drugList %}
 	<tr>
-	<td>eachElem.drugClass</td>
-	<td>eachElem.drugname</td>
-	<td>eachElem.drugByname</td>
+	<td> <input type="text" name="drugClass" value={{ eachElem.drugClass }}></td>
+	<td><input type="text" name="drugname" value={{ eachElem.drugname }}></td>
+	<td><input type="text" name="drugByname" value={{ eachElem.drugByname }}></td>
 	</tr>
 	
 	{% endfor %}

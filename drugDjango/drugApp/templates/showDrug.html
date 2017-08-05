@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+  <form action="/down" method="get">
+
+  	<table border="1">
+  	<tr>
+	<td>drugClass</td>
+	<td>drugName</td>
+	<td>drugByName</td>
+	</tr>
+  	{% for eachElem in drugList %}
+	<tr>
+	<td> {{ eachElem.drugClass }}</td>
+	<td><a  href="https://en.wikipedia.org/wiki/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td>
+	<td><a href="https://en.wikipedia.org/wiki/{{ eachElem.drugByname }}" >{{ eachElem.drugByname }}</a></td>
+	<!-- <td><a  href="https://baike.baidu.com/item/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td>
+	<td><a href="https://baike.baidu.com/item/{{ eachElem.drugByname }}" >{{ eachElem.drugByname }}</a></td> -->
+	</tr>
+	
+	{% endfor %}
+	
+	</table>
+  	
+  </form>
+{% endblock %}
