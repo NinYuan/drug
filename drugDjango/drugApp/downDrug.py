@@ -4,7 +4,7 @@
 
 from django.http import HttpResponse
  
-from drugApp.models import drug
+from drugApp.models import drug,drugNames
 from django.shortcuts import render
 # 数据库操作
 def  down(request):
@@ -28,7 +28,37 @@ def  down(request):
 		edrugClass=drugClasslist[i]
 		eachDrug=drug(drugname=edrugname, drugByname=edrugByName, drugClass=edrugClass)
 		eachDrug.save()
-	return HttpResponse("<p>数据添加成功！</p>")
+
+	context={}
+    	context['para']="drugNames数据添加成功！"
+    	return  render(request, 'mysqlResult.html',context)
+	#return HttpResponse("<p>数据添加成功！</p>")
+
+def  downDrugName(request):
+	request.encoding='utf-8'
+
+	
+	drugnamelist =  request.GET.getlist('drugname')
+	
+	for i in range(len(drugnamelist)):
+
+		edrugname=drugnamelist[i]
+		if  edrugname=="None":
+			continue
+		if edrugname=="":
+			continue
+		try:
+			response = drugNames.objects.get(drugname=edrugname) 
+			continue
+		except Exception as e:
+			pass
+		
+		eachDrug=drugNames(drugname=edrugname)
+		eachDrug.save()
+	context={}
+    	context['para']="drugNames数据添加成功！"
+    	return  render(request, 'mysqlResult.html',context)
+	#return HttpResponse("<p>数据添加成功！</p>")
 
 	# message=drugClass+drugname+drugByname
 	# print "down

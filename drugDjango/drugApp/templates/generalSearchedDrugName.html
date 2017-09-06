@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+  <form action="/downDrug" method="get">
+
+  	<table border="1">
+  	<tr>
+	
+	<td>drugName</td>
+	
+	</tr>
+  	{% for eachElem in drugNameText %}
+	<tr>
+	<td><input type="text" name="drugname" value={{ eachElem }}></td>
+	
+	</tr>
+	
+	{% endfor %}
+	<tr>
+	<td><input type="submit" value="downloadDrugName"></td>
+	
+	</tr>
+	</table>
+  	
+  </form>
+{% endblock %}

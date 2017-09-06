@@ -16,7 +16,7 @@ class spider(object):
 
 
 # url="http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ"
-# url="https://baike.baidu.com/item/%E7%94%B2%E7%A3%BA%E9%85%B8%E4%BC%8A%E9%A9%AC%E6%9B%BF%E5%B0%BC"
+# url="http://mp.weixin.com/s/FFj-7dvWPJsUPojktW-qjQ"
 # sp=spider(url)
 # html=sp.getData()
 # print html

@@ -65,6 +65,9 @@ def searchBaikeFeature(request):
 			druglist.append(drugDownedName)
 		except Exception as e:
 			pass
+	# context={}
+ #    	context['para']=druglist
+    	return  render(request, 'mysqlResult.html',{'druglist':druglist})
 
 
 		#return HttpResponse("ok")
@@ -101,7 +104,7 @@ def searchBaikeFeature(request):
 	# for each in drugList:
 	# 	message+=each.drugname+"		"+each.drugByname+"		"+each.drugClass+"\n"
 	
-	return HttpResponse(druglist)
+	#return HttpResponse(druglist)
 	#return  render(request, 'searchedDrug.html', {'drugList': drugList})
 	
 

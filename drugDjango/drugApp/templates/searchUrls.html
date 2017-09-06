@@ -1,75 +1,13 @@
 {% extends "base.html" %}
  
 {% block mainbody %}
-<table border="1" >
-	<caption>搜索引擎搜索</caption>
-	<tr>
-	<td>search 	ENGINE</td>
-	<td>KEY 	WORDS</td>
-	<td>START	SEARCH</td>
-	</tr>
 
-	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" value="http://weixin.sogou.com/  "></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="搜狗微信搜索 "></td>
-	</form>
-	</tr>
-	
-	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" value="http://www.baidu.com/"></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="Baidu"></td>
-	</form>
-	</tr>
-
-	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" value="http://www.sogou.com/ "></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="sogou"></td>
-	</form>
-	</tr>
-
-	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" value="http://www.so.com/ "></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="so"></td>
-	</form>
-	</tr>
-
-	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" value="http://cn.bing.com/"></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="bing"></td>
-	</form>
-	</tr>
-
-	
-
-	
-
-  	
-  	
-  	<tr>
-	<form action="/search-procUrls" method="get">
-	<td><input type="text" name="url" ></td>
-	<td><input type="text" name="keyword"></td>
-	<td> <input type="submit" value="自定义搜索"></td>
-	</form>
-	</tr>
-
-
-	</table>
 
  <table border="1" >
  	<caption>药品网站搜索</caption>
 	<tr>
 	<td>SEARCH 	URL</td>
+	<td>LOCAL	POSITION</td>
 	<td>DRUG	POSITION</td>
 	<td>DRUG	DIVISION</td>
 	<td>GET	DRUG</td>
@@ -80,8 +18,9 @@
 	<td>
 	<a href="http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ"><input type="text" name="url" value="http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ">
 	</a></td>
-	<td><input type="text" name="postion"></td>
-	<td><input type="text" name="divisioin"></td>
+	<td><input type="text" name="localpostion" value="/home/hong/桌面/大四医疗信息系统设计/最全面的美国癌症靶向药总结（译自美国国家癌症中心）.html"></td>
+	<td><input type="text" name="postion" value="span"></td>
+	<td><input type="text" name="divisioin" value="[（|)|,|®|™]"></td>
 	<td> <input type="submit" value="getDrugName"></td>
 	</form>
 	</tr>
@@ -91,7 +30,8 @@
 	<td><a href="http://www.xty999.com/productlist.ac?category=10279&row=y" >
 		<input type="text" name="url" value="http://www.xty999.com/productlist.ac?category=10279&row=y">
 	</a></td>
-	<td><input type="text" name="postion" value=""></td>
+	<td><input type="text" name="localpostion" value="/home/hong/桌面/大四医疗信息系统设计/云药库-商品列表页-.html"></td>
+	<td><input type="text" name="postion" value="a"></td>
 	<td><input type="text" name="divisioin" value=""></td>
 	<td> <input type="submit" value="getDrugName"></td>
 	</form>
@@ -100,6 +40,7 @@
   	<tr>
 	<form action="/search-procDrugName" method="get">
 	<td><input type="text" name="url" ></td>
+	<td><input type="text" name="localpostion"></td>
 	<td><input type="text" name="postion" ></td>
 	<td><input type="text" name="divisioin" ></td>
 	<td> <input type="submit" value="自定义getDrugName"></td>
@@ -109,6 +50,34 @@
 
 
 </table>
+
+<br/>
+<table border="0" >
+	
+	
+
+	<tr>
+	
+	<td> <a href="http://weixin.sogou.com/"><input type="submit" value="搜狗微信搜索 "></a></td>
+	<td> <a href="http://www.baidu.com/"><input type="submit" value="Baidu "></a></td>
+	<td> <a href="http://www.sogou.com/"><input type="submit" value="sogou "></a></td>
+	<td> <a href="http://cn.bing.com/"><input type="submit" value="bing "></a></td>
+	
+	
+	</tr>
+	
+
+
+
+</table>
+
+ <form action="/show-DrugUrl" method="get">
+  	<ul>
+  	    
+	    <li> <input type="submit" value="downed    Urls"></li>
+	</ul>
+
+  </form>
 
 
 {% endblock %}

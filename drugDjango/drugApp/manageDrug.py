@@ -3,7 +3,7 @@
  
 from django.http import HttpResponse
  
-from drugApp.models import drug
+from drugApp.models import drug,drugNames
 from drugApp.models import drugFeature,drugUrl
 from django.shortcuts import render
 # 数据库操作
@@ -23,9 +23,19 @@ def  manuDrug(request):
     #return HttpResponse("<p>" + response + "</p>")
 
 def  ProcDelDrug(request):
-    drug.objects.delete()
-    return HttpResponse("<p>数据删除成功！</p>") 
+    drug.objects.all().delete()
+    context={}
+    context['para']="drug数据删除成功！"
+    return  render(request, 'mysqlResult.html',context)
+    # return HttpResponse("<p>drug数据删除成功！</p>") 
 
+
+def  ProcDelDrugName(request):
+    drugNames.objects.all().delete()
+    context={}
+    context['para']="drugNames数据删除成功！"
+    return  render(request, 'mysqlResult.html',context)
+    #return HttpResponse("<p>drugNames数据删除成功！</p>") 
 
 def  showDrugUrl(request):
     drugList = drugUrl.objects.all()
@@ -39,8 +49,10 @@ def  addDrugUrl(request):
     UrlDesc=request.GET['UrlDescribe']
     TumorUrl=drugUrl(drugUrl=Url,UrlDescribe=UrlDesc)
     TumorUrl.save()
-   
-    return HttpResponse("<p>Url Add成功！</p>") 
+    context={}
+    context['para']="Url Add成功！"
+    return  render(request, 'mysqlResult.html',context)
+    #return HttpResponse("<p>Url Add成功！</p>") 
     
   
     	

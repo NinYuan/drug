@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+<table border="1">
+  	<tr>
+	
+	<td>drugName</td>
+	
+	</tr>
+  	{% for eachElem in druglist %}
+	<tr>
+	
+	
+	<td><input type="text" name="drugname" value={{ eachElem }}></td>
+	
+	<!-- <td><a  href="https://en.wikipedia.org/wiki/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td> -->
+	
+	<!-- <td><a  href="https://baike.baidu.com/item/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td>
+	<td><a href="https://baike.baidu.com/item/{{ eachElem.drugByname }}" >{{ eachElem.drugByname }}</a></td> -->
+	</tr>
+	
+	{% endfor %}
+{% endblock %}
