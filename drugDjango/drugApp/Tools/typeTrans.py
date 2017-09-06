@@ -1,3 +1,4 @@
+import urllib
 class  dictString(object):
 	"""docstring for  dictString"""
 	def __init__():
@@ -8,3 +9,5 @@ class  dictString(object):
 	def  stringToDict(a):
 		b = eval(a)
 		return b
+
+	

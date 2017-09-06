@@ -4,6 +4,7 @@
 from django.http import HttpResponse
  
 from drugApp.models import drug
+from drugApp.models import drugFeature
 from django.shortcuts import render
 # 数据库操作
 def  getDrug(request):
@@ -19,3 +20,13 @@ def  getDrug(request):
   
     return  render(request, 'showDrug.html', {'drugList': drugList})
     #return HttpResponse("<p>" + response + "</p>")
+
+def  getDrugInfo(request):
+	drugList = drugFeature.objects.all()
+	return  render(request, 'showDragInfo.html', {'drugList': drugList})
+        
+    # # filter相当于SQL中的WHERE，可设置条件过滤结果
+    # response2 = drug.objects.filter(drugname=1) 
+    
+  
+    	

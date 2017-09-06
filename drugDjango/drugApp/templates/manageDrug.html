@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+  <form action="/delete-procDrug" method="get">
+  	<ul>
+	    <li> <input type="submit" value="deleteDrug"></li>
+	</ul>
+
+  </form>
+
+ <form action="/add-procDrugUrl" method="get">
+  	<ul>
+  	    <li>
+	    <strong>{{ eachElem.elemLable }}</strong>
+	           {{ eachElem.examp }}
+	    </li>
+	    <li> <input type="text" name="drugUrl"}></li>
+	    <li> <input type="text" name="UrlDescribe"}></li>
+	    <li> <input type="submit" value="addSearchUrl"></li>
+	</ul>
+
+  </form>
+
+{% endblock %}

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+import urllib,sys
 def  proDL(data):
 	datalist=data.split("-")
 	
@@ -13,8 +15,21 @@ def  proRMBreak(data):
 	datalist=data.split(" ")
 	datalist=data.split(" ")
 	return datalist
+
+def toUrlCode(data):
+	rdata=urllib.quote(data)
+	return rdata
+	#urllib.quote(s.decode(sys.stdin.encoding).encode('gbk'))
+	#rdata=urllib.quote(data.decode(sys.stdin.encoding).encode('utf8'))
 	
-# data="1-27"
+	
+# a=[2]
+# b=[1]
+# c=a+b
+# print c
+# data="西妥昔单抗"
+# drugname=toUrlCode(data)
+# print drugname
 # datalist=proDL(data)
 # print datalist
 # def  proTG(data):

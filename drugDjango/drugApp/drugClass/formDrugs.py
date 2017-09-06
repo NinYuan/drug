@@ -3,7 +3,8 @@ from drugApp.drugClass.DrugStruc import *
 import sys
 import string
 #from DrugStruc import *
-class  drugFormer(object):
+#deal with info insert by users
+class  drugFormer(object):  
 	"""docstring for  drugFormer"""
 	def __init__(self, drugDict,drugInterLabel,drugByNameLabelList,removeDict):
 		

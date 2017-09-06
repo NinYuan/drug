@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+<!--   <form action="/down" method="get"> -->
+  <!-- <form action="/search-drugBaikeFeature" method="get">
+ -->
+  	<table border="1">
+  	<tr>
+	<td>drugUrl</td>
+	<td>UrlDescribe</td>
+	
+	</tr>
+  	{% for eachElem in drugList %}
+	<tr>
+	<td> {{ eachElem.drugUrl }}</td>
+	<td> {{ eachElem.UrlDescribe }}</td>
+	
+	
+	</tr>
+	
+	{% endfor %}
+	
+	
+
+	</table>
+  	
+  <!-- </form> -->
+{% endblock %}

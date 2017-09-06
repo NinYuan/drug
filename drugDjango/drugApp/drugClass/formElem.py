@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from drugApp.drugClass.searchElem import *
+#encode info to users
 def  formElm():
 	elemList=[]
 	e0=searchElem("url", "eg:http://mp.weixin.qq.com/s/FFj-7dvWPJsUPojktW-qjQ")

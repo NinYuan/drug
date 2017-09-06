@@ -17,7 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from drugApp import views
 from drugApp import downDrug
-from drugApp import getDrugData,tumorDrug
+from drugApp import getDrugData,tumorDrug,drugBaikeFeature,searchDrugUrl
+from drugApp import manageDrug
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +27,16 @@ urlpatterns = [
     url(r'^getdrug$',getDrugData.getDrug),
     url(r'^search-drug$', tumorDrug.search_drug),
     url(r'^search$', tumorDrug.search),
+    url(r'^search-drugBaikeFeature$', drugBaikeFeature.searchBaikeFeature),
+    url(r'^show-drugBaikeFeature$', getDrugData.getDrugInfo),
+
+    url(r'^manage-drug$', manageDrug.manuDrug),
+    url(r'^delete-procDrug$', manageDrug.ProcDelDrug),
+    url(r'^add-procDrugUrl$', manageDrug.addDrugUrl),
+
+    url(r'^search-drugUrls$', searchDrugUrl.searchTumorUrl),
+    url(r'^search-procUrls$', searchDrugUrl.UseFulUrls),
 ]
+
+
 
