@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+<h3>Form 	Url <input type="text" name="durl" value={{ url }}></h3>
+
+
+<table border="1">
+	<caption> All	 Drug 	Name</caption>
+  	<tr>
+	
+	<td>   Drug  Name</td>
+	<td> From 	Urls</td>
+	<td>Knowledge	     Form    </td>
+	</tr>
+  	{% for eachElem in druglist %}
+	<tr>
+	
+	
+	   <td><input type="text" name="drugname" value={{ eachElem.drugname }}></td>
+	 <td><input type="text" name="durl" value={{ eachElem.drugArticle  }}></td>
+	  <td><input type="text" name="edrugKnow" value={{ eachElem.drugKnowledgeRef }}></td>
+	
+	 
+	
+
+	
+	
+	<!-- <td><a  href="https://en.wikipedia.org/wiki/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td> -->
+	
+	<!-- <td><a  href="https://baike.baidu.com/item/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td>
+	<td><a href="https://baike.baidu.com/item/{{ eachElem.drugByname }}" >{{ eachElem.drugByname }}</a></td> -->
+	</tr>
+	
+	{% endfor %}
+
+</table>
+
+
+{% endblock %}

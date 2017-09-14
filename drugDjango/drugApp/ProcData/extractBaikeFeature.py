@@ -2,17 +2,20 @@
 from bs4 import BeautifulSoup
  
 from drugApp.models import drugFeature
+
+from drugApp.dbDataProc.getFeature import getFeatureClasses
 # from drugApp.getData.getDrugsInt import *
 # from drugApp.Tools.dealData import *
 
 class  extractBaikeFeatureClass(object):
 	"""docstring for  extractDrugs"""
-	def __init__(self, html,drugname,titleClass,paraClass):
+	def __init__(self, html,drugname,titleClass,paraClass,topK):
 		
 		self.html= html
 		self.drugname=drugname
 		self.titleClass=titleClass
 		self.paraClass=paraClass
+		self.topK=topK
 		#self.className=className
 		# self.tag=tag
 		# self.dictionlist=dictionlist
@@ -23,7 +26,7 @@ class  extractBaikeFeatureClass(object):
 		#return repr(response)
 		#return len(response)
 		if  len(response) !=0:
-			return "alreadyInMysql"
+			return "alreadyInMysql"+self.drugname
 		#return response
 		# return "alreadyInMysql"
 		# try:
@@ -72,11 +75,11 @@ class  extractBaikeFeatureClass(object):
 			drugFeatureText="\n".join(drugInfo)
 			
 
-			
+			featureKeywords=getFeatureClasses(drugFeatureText,self.topK)
 			#down to DrugFeature
 			
 
-			drugFt=drugFeature(drugname=self.drugname, featureName=FeatureName, drugFeature=drugFeatureText)
+			drugFt=drugFeature(drugname=self.drugname, featureName=FeatureName, drugFeatureContent=drugFeatureText,drugFeatureKeyWords=featureKeywords)
 			drugFt.save()
 
 		

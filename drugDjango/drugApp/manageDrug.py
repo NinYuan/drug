@@ -29,6 +29,13 @@ def  ProcDelDrug(request):
     return  render(request, 'mysqlResult.html',context)
     # return HttpResponse("<p>drug数据删除成功！</p>") 
 
+def  ProcDelLocalUrl(request):
+    dlocalpostion=request.GET['localPosion']
+    os.remove(dlocalpostion)
+    context={}
+    context['para']="本地文档删除成功！"
+    return  render(request, 'mysqlResult.html',context)
+
 
 def  ProcDelDrugName(request):
     drugNames.objects.all().delete()

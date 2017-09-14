@@ -2,19 +2,21 @@
  
 {% block mainbody %}
 <!--   <form action="/down" method="get"> -->
-  <form action="/search-drugBaikeFeature" method="get">
-  	 <h3>Form 	Url <input type="text" name="durl" value={{ url }}></h3>
+ 
+  	 
   	<table border="1">
   	<tr>
 	
 	<td>drugName</td>
-	
+	<td>click</td>
 	</tr>
-  	{% for eachElem in drugList %}
+  	{% for eachElem in drugnames %}
 	<tr>
 	
-	
-	<td><input type="text" name="drugname" value={{ eachElem.drugname }}></td>
+	 <form action="/getDrugInfo" method="get">
+	<td><input type="text" name="drugname" value={{ eachElem }}></td>
+	<td><input type="submit" value="详情"></td>
+	 </form>
 	
 	<!-- <td><a  href="https://en.wikipedia.org/wiki/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td> -->
 	
@@ -24,12 +26,9 @@
 	
 	{% endfor %}
 	
-	<tr>
-	<td><input type="submit" value="getBaikeFeature"></td>
 	
-	</tr>
 
 	</table>
   	
-  </form>
+ 
 {% endblock %}

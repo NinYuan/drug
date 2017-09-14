@@ -10,7 +10,8 @@ from drugApp.drugClass.formElem import *
 from drugApp.getData.getDrugsInt import *
 from drugApp.ProcData.extractBaikeFeature import *
 from drugApp.Tools.dealData import *
-
+from drugApp.models import drugNames
+from drugApp.drugClass.DrugStruc import drugSearch
 
 
 #show drugBaikeFeatures
@@ -28,6 +29,9 @@ def searchBaikeFeature(request):
 	
 
 	drugnamelist =  request.GET.getlist('drugname')
+	#return HttpResponse("ok")
+	durl =  request.GET['durl']
+	#return HttpResponse(durl)
 	baikeFeature=[]
 
 	#return HttpResponse(drugnamelist[0])
@@ -62,13 +66,27 @@ def searchBaikeFeature(request):
 			exdata=extractBaikeFeatureClass(html,drugname,titleClass,paraClass)
 
 			drugDownedName=exdata.getBaikeFeature()
-			druglist.append(drugDownedName)
+			if  drugDownedName.find("alreadyInMysql")!=-1:
+				drugDownlist=drugDownedName.split("alreadyInMysql")
+				drugDownlist.remove("")
+				drugDownedName=drugDownlist[0]
+				eachdrug=drugSearch(newdrugname="",alreadydrugname=drugDownedName,cantdrugname="")
+				druglist.append(eachdrug)
+			else:
+				eachdrug=drugSearch(newdrugname=drugDownedName,alreadydrugname="",cantdrugname="")
+				druglist.append(eachdrug)
+			#return  render(request, 'BaikeSearchedName.html',{'druglist':druglist})
+			#return HttpResponse(drugDownedName)
 		except Exception as e:
+			eachdrug=drugSearch(newdrugname="",alreadydrugname="",cantdrugname=drugname)
+			druglist.append(eachdrug)
+			
 			pass
 	# context={}
  #    	context['para']=druglist
-    	return  render(request, 'mysqlResult.html',{'druglist':druglist})
 
+    	return  render(request, 'BaikeSearchedName.html',{'druglist':druglist,'url':durl})
+    	#return HttpResponse("ok")
 
 		#return HttpResponse("ok")
 		#return HttpResponse(drugDownedName)

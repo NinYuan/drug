@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from drugApp import views
-from drugApp import downDrug
+from drugApp import downDrug,getBaikeFeature
 from drugApp import getDrugData,tumorDrug,drugBaikeFeature,searchDrugUrl,TumorDrugWeb
 from drugApp import manageDrug
+from drugApp import LineChartJSONView,tes
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,7 +29,7 @@ urlpatterns = [
     url(r'^search-drug$', tumorDrug.search_drug),
     url(r'^search$', tumorDrug.search),
     url(r'^search-drugBaikeFeature$', drugBaikeFeature.searchBaikeFeature),
-    url(r'^show-drugBaikeFeature$', getDrugData.getDrugInfo),
+    url(r'^show-drugBaikeFeature$', getDrugData.getDrugBaike),
 
     url(r'^manage-drug$', manageDrug.manuDrug),
     url(r'^delete-procDrug$', manageDrug.ProcDelDrugName),
@@ -45,7 +46,29 @@ urlpatterns = [
 
      url(r'^show-DrugUrl$', manageDrug.showDrugUrl),
 
+     url(r'^delete-procLocalUrl$', manageDrug.ProcDelLocalUrl),
 
+     url(r'^downAllDrug$', downDrug.downAllDrug),
+
+     # url(r'^echartLines$', LineChartJSONView.echartLines),
+     # url(r'^line_chart_json$', LineChartJSONView.testLine),
+
+     url(r'^EchartDrugInfo$', getDrugData.EchartDrugInfo),
+     url(r'^getEchart$', getDrugData.getEchart),
+     url(r'^showDrugs$', getDrugData.showDrugs),
+     url(r'^getDrugInfo$', getDrugData.getDrugInfo),
+
+     #EchartDrugInfo
+
+     url(r'^line_chart/$', LineChartJSONView.line_chart,
+        name='line_chart'),
+    url(r'^line_chart/json/$', LineChartJSONView.line_chart_json,
+        name='line_chart_json'),
+
+    url(r'^todb$', tes.chance),
+    url(r'^getKeyWord$', getBaikeFeature.chance),
+    
+    
 
 ]
 

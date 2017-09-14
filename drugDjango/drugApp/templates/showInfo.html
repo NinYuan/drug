@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+ <h4>{{drugname}}</h4>
+ {% for eachElem in Info %}
+  	<ul>
+    {{eachElem.featureName}}
+	    <li> <p>{{eachElem.drugFeatureContent}}</p></li>
+     <br>
+	</ul>
+
+ 
+{% endfor %}
+   
+{% endblock %}

@@ -4,7 +4,7 @@
 
 from django.http import HttpResponse
  
-from drugApp.models import drug,drugNames
+from drugApp.models import drug,drugNames,AlldrugNames
 from django.shortcuts import render
 # 数据库操作
 def  down(request):
@@ -67,3 +67,44 @@ def  downDrugName(request):
 	# drug1.save()
 	#return HttpResponse("<p>数据添加成功！</p>")
 
+	AlldrugNames
+	drugname= models.CharField(max_length=100)
+	drugArticle= models.CharField(max_length=100)
+	drugKnowledgeRef= models.CharField(max_length=100)
+
+def downAllDrug(request):
+	newdrugname =  request.GET.getlist('newdrugname')
+	alreadydrugname =  request.GET.getlist('alreadydrugname')
+	cantdrugname =  request.GET.getlist('cantdrugname')
+	#durl =  request.GET.getlist('durl')
+	durl =  request.GET['drugurl']
+	#return HttpResponse(durl)
+	#durl =  request.GET['durl']
+	# dnew=len(newdrugname)
+	# dalready=len(alreadydrugname)
+	# return HttpResponse(dnew+"***"+dalready) 
+	 
+	drugList=[]
+	for i in range(len(newdrugname)):
+		edrugnamelist=newdrugname[i]+alreadydrugname[i]+cantdrugname[i]
+		if cantdrugname!="":
+			edrugKnow="Baidu"
+		else:
+			edrugKnow=""
+
+		eachDrug=AlldrugNames(drugname=edrugnamelist, drugArticle=durl, drugKnowledgeRef=edrugKnow)
+		#drugList.append(eachDrug)
+		#return HttpResponse(edrugnamelist+"*"+durl+"*"+edrugKnow)
+		try:
+			eachDrug.save()
+		except Exception as e:
+			pass
+		
+
+	#drugList = AlldrugNames.objects.all()
+	context={}
+    	context['para']="all drugName 数据添加成功！"
+    	return  render(request, 'mysqlResult.html',context)
+    	
+    	#return  render(request, 'showAllDrug.html', {'drugList': drugList})
+	# pass

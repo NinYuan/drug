@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+    
+   <!--  <script src="echarts.min.js"></script> -->
+</header>
+<body>
+
+
+    <!-- 为 ECharts 准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+           
+            
+            series : [
+                {
+                    
+                    type: 'pie',
+                    radius: '55%',
+                    data:[
+                      /*   355, 290, 340*/
+                       
+                        {value:310, name:'邮件营销'},
+                        {value:445, name:'直接访问'},
+                        {value:400, name:'搜索引擎'}
+                        
+                    ],
+                    roseType: 'angle',
+                    label: {
+                        normal: {
+                            textStyle: {
+                               /* color: 'rgba(182, 182, 176)'*/
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#4AB6B0',
+                            shadowBlur: 2,
+                            shadowColor: 'rgba(3, 3, 4, 0.5)'
+                        }
+                    }
+                    
+                }
+            ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

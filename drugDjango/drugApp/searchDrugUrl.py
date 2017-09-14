@@ -53,21 +53,22 @@ def  procDrugName(request):
             drugNameText.remove('\n')
         if drug=='':
             drugNameText.remove('')
-        if drug=="":
-            drugNameText.remove("")
-        if drug==" ":
-            drugNameText.remove("\n\r")
+        # if drug=="":
+        #     drugNameText.remove("")
+        # if drug==" ":
+        #     drugNameText.remove("\n\r")
 
     #drugNameText.remove()
 
     #message=""
     # exdata=extractDrugs(html, dpostion, ddvision)
     # drugDict=exdata.getDrug()
-   # os.remove(dlocalpostion)
+    # os.remove(dlocalpostion)
     #drug="***".join(drugNameText)
 
-
-    return  render(request, 'generalSearchedDrugName.html', {'drugNameText': drugNameText})
+     # context={}
+     # context['url']=durl
+    return  render(request, 'generalSearchedDrugName.html', {'drugNameText': drugNameText,'url':durl})
 
     # return HttpResponse(drug)
     # drugList = drugFeature.objects.all()

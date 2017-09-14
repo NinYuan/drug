@@ -2,19 +2,24 @@
  
 {% block mainbody %}
 <!--   <form action="/down" method="get"> -->
-  <!-- <form action="/search-drugBaikeFeature" method="get">
- -->
+  <form action="/getKeyWord" method="get">
+KeyWordNum
+  	<input type="text" name="keyWordNum" >
+  	<input type="submit" value="getKeyWord">
+  	
   	<table border="1">
   	<tr>
 	<td>drugName</td>
 	<td>feature</td>
 	<td>featureContent</td>
+	<td>KeyContent</td>
 	</tr>
   	{% for eachElem in drugList %}
 	<tr>
 	<td> {{ eachElem.drugname }}</td>
 	<td> {{ eachElem.featureName }}</td>
-	<td><textarea >{{ eachElem.drugFeature }}</textarea> </td>
+	<td><textarea >{{ eachElem.drugFeatureContent }}</textarea> </td>
+	<td> {{ eachElem.drugFeatureKeyWords }}</td>
 	
 	</tr>
 	
@@ -23,6 +28,6 @@
 	
 
 	</table>
-  	
-  <!-- </form> -->
+
+  </form>
 {% endblock %}

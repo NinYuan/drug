@@ -64,8 +64,12 @@ class  extractDrugs(object):
 		s=re.split(rpattern,etext)
 		# print "s"
 		# print s
-		if len(s)==1:
+		if len(s)>2:
+			return s
+		else:
 			return []
+		# if len(s)==1:
+		# 	return []
 
 		# for etext in s:
 			
@@ -82,7 +86,7 @@ class  extractDrugs(object):
 		# s=re.split(self.rpattern,"".join(s))
 		# s=re.split(self.rpattern,"".join(s))
 		#print s
-		return s
+		# return s
 		
 
 # file="/home/hong/桌面/大四医疗信息系统设计/[菩提众生]抗肿瘤药大全.html"

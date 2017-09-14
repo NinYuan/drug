@@ -1,17 +1,32 @@
 {% extends "base.html" %}
  
 {% block mainbody %}
-<table border="1">
+
+
+<form action="/downAllDrug" method="get">
+<!-- <h3>Form 	Url <input type="text" name="drugurl" value={{ url }}></h3>
+ --><table border="1">
+	<caption>Drug 		Name</caption>
+	<h3>Form 	Url <input type="text" name="drugurl" value={{ url }}></h3>
+
   	<tr>
 	
-	<td>drugName</td>
-	
+	<td>  New    Drug  Name</td>
+	<td> Already In Mysql</td>
+	<td>Can't   Find  Drug  Name</td>
 	</tr>
   	{% for eachElem in druglist %}
 	<tr>
 	
 	
-	<td><input type="text" name="drugname" value={{ eachElem }}></td>
+	   <td><input type="text" name="newdrugname" value={{ eachElem.newdrugname }}></td>
+	 <td><input type="text" name="alreadydrugname" value={{ eachElem.alreadydrugname  }}></td>
+	  <td><input type="text" name="cantdrugname" value={{ eachElem.cantdrugname }}></td>
+	
+	 
+	
+
+	
 	
 	<!-- <td><a  href="https://en.wikipedia.org/wiki/{{ eachElem.drugname }}" >{{ eachElem.drugname }}</a></td> -->
 	
@@ -20,4 +35,9 @@
 	</tr>
 	
 	{% endfor %}
+
+</table>
+<input type="submit" value="download All DrugName">
+</form>
+
 {% endblock %}

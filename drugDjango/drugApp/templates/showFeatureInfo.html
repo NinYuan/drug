@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+<!--   <form action="/down" method="get"> -->
+  <!-- <form action="/search-drugBaikeFeature" method="get">
+ -->
+  	<table border="1">
+  	<tr>
+	<td>featureName</td>
+	<td>featureNum</td>
+	<td>drugName</td>
+	<td>featureContent</td>
+	</tr>
+  	{% for eachElem in drugList %}
+  	<form action="/getEchart" method="get">
+	<tr>
+	<td> <input type="text" name="feature" value="{{ eachElem.feature }}"></td>
+	<td><input type="text" name="featureNum" value="{{ eachElem.featureNum }}"> </td>
+	<td>
+		<input type="text" name="drugs" value="{% for each in eachElem.drugs %}
+		{{ each }}
+		{% endfor %}">
+	</td>
+	<td>
+		<input type="text" name="subfeatures" value="{% for each in eachElem.subfeatures %} {{ each }} {% endfor %}">
+	</td>
+	
+	</tr>
+	<td> <input type="submit" value="{{ eachElem.feature }}"></td>
+
+	</form>
+	{% endfor %}
+	
+	
+
+	</table>
+  	
+<!--   </form> -->
+{% endblock %}
